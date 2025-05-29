@@ -275,7 +275,7 @@ func AMDGetGPUInfo() ([]RocmGPUInfo, error) {
 		gpuInfo := RocmGPUInfo{
 			GpuInfo: GpuInfo{
 				Library: "rocm",
-				memInfo: memInfo{
+				MemInfo: MemInfo{
 					TotalMemory: totalMemory,
 					FreeMemory:  (totalMemory - usedMemory),
 				},

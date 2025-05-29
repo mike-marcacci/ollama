@@ -27,7 +27,7 @@ func GetGPUInfo() GpuInfoList {
 		return []GpuInfo{
 			{
 				Library: "cpu",
-				memInfo: mem,
+				MemInfo: mem,
 			},
 		}
 	}
@@ -49,13 +49,13 @@ func GetCPUInfo() GpuInfoList {
 	return []GpuInfo{
 		{
 			Library: "cpu",
-			memInfo: mem,
+			MemInfo: mem,
 		},
 	}
 }
 
-func GetCPUMem() (memInfo, error) {
-	return memInfo{
+func GetCPUMem() (MemInfo, error) {
+	return MemInfo{
 		TotalMemory: uint64(C.getPhysicalMemory()),
 		FreeMemory:  uint64(C.getFreeMemory()),
 		// FreeSwap omitted as Darwin uses dynamic paging
@@ -84,7 +84,7 @@ func GetSystemInfo() SystemInfo {
 	return SystemInfo{
 		System: CPUInfo{
 			GpuInfo: GpuInfo{
-				memInfo: mem,
+				MemInfo: mem,
 			},
 			CPUs: []CPU{
 				{

@@ -239,7 +239,7 @@ func GetGPUInfo() GpuInfoList {
 		cpus = []CPUInfo{
 			{
 				GpuInfo: GpuInfo{
-					memInfo: mem,
+					MemInfo: mem,
 					Library: "cpu",
 					ID:      "0",
 				},

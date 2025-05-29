@@ -7,7 +7,7 @@ import (
 	"github.com/ollama/ollama/format"
 )
 
-type memInfo struct {
+type MemInfo struct {
 	TotalMemory uint64 `json:"total_memory,omitempty"`
 	FreeMemory  uint64 `json:"free_memory,omitempty"`
 	FreeSwap    uint64 `json:"free_swap,omitempty"` // TODO split this out for system only
@@ -15,7 +15,7 @@ type memInfo struct {
 
 // Beginning of an `ollama info` command
 type GpuInfo struct { // TODO better name maybe "InferenceProcessor"?
-	memInfo
+	MemInfo
 	Library string `json:"library,omitempty"`
 
 	// Optional variant to select (e.g. versions, cpu feature flags)

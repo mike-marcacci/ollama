@@ -49,13 +49,13 @@ var (
 	OneapiMgmtName = "ze_intel_gpu64.dll"
 )
 
-func GetCPUMem() (memInfo, error) {
+func GetCPUMem() (MemInfo, error) {
 	memStatus := MEMORYSTATUSEX{length: sizeofMemoryStatusEx}
 	r1, _, err := globalMemoryStatusExProc.Call(uintptr(unsafe.Pointer(&memStatus)))
 	if r1 == 0 {
-		return memInfo{}, fmt.Errorf("GlobalMemoryStatusEx failed: %w", err)
+		return MemInfo{}, fmt.Errorf("GlobalMemoryStatusEx failed: %w", err)
 	}
-	return memInfo{TotalMemory: memStatus.TotalPhys, FreeMemory: memStatus.AvailPhys, FreeSwap: memStatus.AvailPageFile}, nil
+	return MemInfo{TotalMemory: memStatus.TotalPhys, FreeMemory: memStatus.AvailPhys, FreeSwap: memStatus.AvailPageFile}, nil
 }
 
 type LOGICAL_PROCESSOR_RELATIONSHIP uint32

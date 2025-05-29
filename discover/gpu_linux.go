@@ -54,8 +54,8 @@ var (
 	OneapiMgmtName = "libze_intel_gpu.so*"
 )
 
-func GetCPUMem() (memInfo, error) {
-	var mem memInfo
+func GetCPUMem() (MemInfo, error) {
+	var mem MemInfo
 	var total, available, free, buffers, cached, freeSwap uint64
 	f, err := os.Open("/proc/meminfo")
 	if err != nil {
